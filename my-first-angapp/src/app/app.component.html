@@ -1,0 +1,54 @@
+<div>
+  <input type="text" placeholder="bookname" value="Learn React" #bkname>
+  <p>Helloooo, {{title}}</p>
+  <p>Book Name: {{mybook.name}}</p>
+  <p>Book Price: {{mybook.price}}</p>
+  <!-- <button (click)="changebookname(bkname)">Change Book Name</button> -->
+
+  <button (click)="changebookname1(bkname.value); bkname.value=''">Change Book Name</button>   
+
+
+  <hr>
+  <br>
+  <p>Getting Book's name & price with the help of Two-Way Binding</p>
+  <h3>Using &#64;if and &#64;for and iterating array in htmltemplate!</h3>
+  <input type="number" [(ngModel)]="mybook1.bkid" placeholder="bookid">
+  <input type="text" [(ngModel)]="mybook1.bkname" placeholder="bookname">
+  <input type="number" [(ngModel)]="mybook1.bkprice" placeholder="bookprice">
+  <button (click)="addBook()" >AddBook</button>
+  <br><br>
+  {{status}}
+  <hr>
+  <h3>Book Table</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Book Id</th>
+        <th>Book Name</th>
+        <th>Book Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (book of bookarr; track book) {
+      <tr>
+        <td>{{book.bkid}}</td>
+        <td>{{book.bkname}}</td>
+        <td>{{book.bkprice}}</td>
+      </tr>
+      }
+    </tbody>
+
+  </table>
+  <br><hr><br>
+  <div>
+    <h3><i>Current Book Details</i></h3>
+    @if(mybook1.bkid!=0 && mybook1.bkname!='' && mybook1.bkprice!=0){
+      {{mybook1}} <br>
+        Id={{mybook1.bkid}}<br>
+        Name={{mybook1.bkname}} <br>
+        Price={{mybook1.bkprice}} <br><br>
+      } 
+  </div>
+  <hr>
+    
+</div>
