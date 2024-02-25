@@ -1,0 +1,20 @@
+<h4>Register New Book</h4>
+<input type="number" [(ngModel)]="mybook.bkid" placeholder="bookid" disabled>
+<input type="text" [(ngModel)]="mybook.bkname" placeholder="bookname">
+<input type="number" [(ngModel)]="mybook.bkprice" placeholder="bookprice">
+<button (click)="addBook()" >AddBook</button>
+<br>
+<div>
+    <h3><i>Current Book Details</i></h3>
+    @if(mybook.bkid!=0 && mybook.bkname!='' && mybook.bkprice!=0){
+      {{mybook}} <br>
+        Id={{mybook.bkid}}<br>
+        Name={{mybook.bkname}} <br>
+        Price={{mybook.bkprice}} <br><br>
+      } 
+  </div>
+  @if(status!='')
+  {
+    <hr>
+    {{status}}
+  }

@@ -1,0 +1,36 @@
+<h4>listbook of all registered books</h4>
+<hr>
+<table>
+    <thead>
+        <tr>
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>Book Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (book of bookarr; track book) {
+        <tr>
+            <td>{{book.bkid}}</td>
+            <td>{{book.bkname}}</td>
+            <td>{{book.bkprice}}</td>
+            <td><button (click)="deleteBook(book.bkid)">Delete</button></td>
+            <td><button (click)="openForm2(book)">Edit</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br>
+{{deletestatus}}
+<hr>
+
+@if(selectedBook) {
+<div>
+    <input type="number" [(ngModel)]="selectedBook.bkid" placeholder="bookid" disabled>
+    <input type="text" [(ngModel)]="selectedBook.bkname" placeholder="bookname">
+    <input type="number" [(ngModel)]="selectedBook.bkprice" placeholder="bookprice">
+    <button (click)="updateBook(selectedBook)">Update Book</button>
+    <br>
+</div>
+}
